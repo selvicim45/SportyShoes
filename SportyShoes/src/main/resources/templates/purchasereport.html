@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Sporty Shoes</title>
+
+<style>
+body
+    {
+    
+     background-image:url(/images/field1.jpg);
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+     background-size: cover;
+    }
+
+</style>
+</head>
+<body>
+<a th:href="@{welcome}">Home Page</a><br><br><br><br><br>
+
+
+ <form action="./purchasereport" th:object="${purchasereport}" method="post">
+ 
+    <select class="form-control" id="pdate" name="pdatedropdown">
+        <option value="">Select Date</option>
+        <option th:each="data : ${purchasereport}"
+                th:value="${data.pdate}"
+                th:text="${data.pdate}"
+                ></option>
+    </select>
+    <button type="submit">Show By Date</button><br><br><br>
+    
+    <select class="form-control" id="category" name="categorydropdown">
+        <option value="">Select Category</option>
+        <option th:each="data : ${purchasereport}"
+                th:value="${data.category}"
+                th:text="${data.category}"
+                ></option>
+    </select>
+    <button type="submit">Show By Category</button>
+    
+    <h1>Purchase Report</h1>
+     <table border="1px">
+   <tr>
+      <td>Purchase Id</td>
+      <td>Purchase Date</td>
+      <td>Report</td>     
+      <td>Category</td>       
+   </tr>
+   <tr th:each="data: ${purchasereport}">
+     <td><span th:text="${data.pid}"></span></td>
+     <td><span th:text="${data.pdate}"></span></td>
+     <td><span th:text="${data.report}"></span></td>  
+     <td><span th:text="${data.category}"></span></td> 
+   </tr> 
+</table>
+  </form>
+ 
+</body>
+</html>

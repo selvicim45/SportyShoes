@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Sporty Shoes</title>
+<style>
+body
+    {
+    
+     background-image:url(/images/field1.jpg);
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+     background-size: cover;
+    }
+
+</style>
+<title th:text="${message}"></title>
+</head>
+<body>
+<a th:href="@{welcome}">Home Page</a><br><br>
+<a th:href="@{purchasereport}">Purchase Report</a><br><br><br><br><br>
+
+
+
+ <h1>Purchase Report</h1>
+ <table border="1px">
+   <tr>
+      <td>Purchase Id</td>
+      <td>Purchase Date</td>
+      <td>Report</td>
+      <td>Category</td>          
+   </tr>
+   <tr th:each="data: ${purchasereport}">
+     <td><span th:text="${data.pid}"></span></td>
+     <td><span th:text="${data.pdate}"></span></td>
+     <td><span th:text="${data.report}"></span></td>  
+     <td><span th:text="${data.category}"></span></td>   
+   </tr> 
+</table>
+</body>
+</html>

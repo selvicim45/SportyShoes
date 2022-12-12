@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Products Manager Sporty Shoes</title>
+<style>
+
+body
+    {
+    
+     background-color:cyan;
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+     background-size: cover;
+    }
+
+    
+</style>
+ </head>
+<body>
+<a th:href="@{welcome}">Home Page</a><br><br>
+<a th:href="@{add}">Add New Product</a><br><br><br>
+
+<div align="center">
+  <h1>Products List</h1>
+  <br><br>
+  <table border="1">
+     <tr>
+         <th>Product ID</th>
+         <th>Category</th>
+         <th>Brand</th>
+         <th>Price</th>
+         <th>In Stock</th>       
+     </tr>
+      <tr th:each="data : ${productList}">
+         <td><span th:text="${data.id}"></span></td>
+         <td><span th:text="${data.category}"></span></td>
+         <td><span th:text="${data.brand}"></span></td>
+         <td><span th:text="${data.price}"></span></td>
+         <td><span th:text="${data.instock}"></span></td>           
+         
+         <!-- <td><a th:href="@{edit}">Edit</a></td>-->
+         <td><a th:href="@{/edit{id}(id=${data.id})}" class="btn btn-danger">Edit</a></td>
+         <td><a th:href="@{delete{id}(id=${data.id})}" class="btn btn-danger">Delete</a></td>
+         
+                     
+       </tr>    
+            
+   </table>
+</div>
+</body>
+</html>

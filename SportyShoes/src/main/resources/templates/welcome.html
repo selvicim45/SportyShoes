@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Sporty Shoes.com</title>
+</head>
+<style>
+.container {   
+         margin: 0 auto;
+         width: 210px;
+         
+    }
+body
+    {
+    
+     background-image: url(/images/shoes.png);
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+     background-size: cover;
+    }
+h1,h2 {
+  text-align: center;
+  
+}
+</style>
+<body>
+<div class=".container">
+ <br><br><br><br><br><br><br>
+ <h1>Welcome to Sporty Shoes.com</h1>
+ 
+ <h2>The one stop store to buy all kinds of sports shoes</h2>
+ 
+ <a th:href="@{changepassword}">Change Password</a><br>
+ <a th:href="@{manageproducts}">Manage Products</a><br>
+ <a th:href="@{searchusers}">Search Users</a><br>
+ <a th:href="@{purchasereport}">Purchase report</a>
+ </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Sporty Shoes</title>
+<style>
+body
+    {
+    
+     background-image:url(/images/shoes4.jpg);
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+     background-size: cover;
+    }
+
+</style>
+</head>
+<body>
+<a th:href="@{welcome}">Home Page</a><br><br><br><br><br>
+<a th:href="@{searchusers}">Show All Users</a><br><br><br><br><br>
+ <h1>Users List</h1>
+ <table border="1px">
+   <tr>
+      <td>User Id</td>
+      <td>User Name</td>
+      <td>Signed up</td>          
+   </tr>
+    <tr th:each="data: ${userList}">
+     <td><span th:text="${data.userid}"></span></td>
+     <td><span th:text="${data.username}"></span></td>
+     <td><span th:text="${data.signedup}"></span></td>   
+   </tr> 
+</table>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Edit Products</title>
+<style>
+.container {   
+         margin: 0 auto;
+         width: 210px;
+         
+    }
+body
+    {
+    
+     background-image:url(/images/shoes6.jpg);
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+     background-size: cover;
+    }
+h1 {
+  text-align: center;
+}
+    
+</style>
+</head>
+<body>
+<a th:href="@{welcome}">Home Page</a><br>
+<a th:href="@{manageproducts}">Product Manager</a><br><br><br><br><br>
+<h1>Edit Products</h1>
+<div class="container">
+<form action="./update" method="get" th:object="${product}" >
+   <!-- <input type="hidden" name="id" value="${editproduct.id}"> -->
+   <label for="id"> ID:</label><br> 
+   <input type="text" id="id" name="id" th:value="*{id}"><br>
+   <label for="category">Category</label><br>
+   <input type="text" id="category" name="category" th:field="*{category}"><br>
+   <label for="brand">Brand</label><br>
+   <input type="text" id="brand" name="brand" th:value="*{brand}"><br>
+   <label for="price">Price</label><br>
+   <input type="text" id="price" name="price" th:value="*{price}"><br>
+   <label for="instock">In Stock</label><br>
+   <input type="text" id="instock" name="instock" th:value="*{instock}"><br><br>
+   <input type="submit" value="Update"> 
+   </form>
+
+</div>
+</body>
+</html>
